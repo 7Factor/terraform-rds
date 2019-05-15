@@ -3,7 +3,7 @@ output "db_name" {
   description = "The name of the database."
 }
 
-output "db_master_username" {
+output "db_username" {
   value       = "${aws_db_instance.main.username}"
   description = "The username for the database."
 }
