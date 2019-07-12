@@ -6,7 +6,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
     var.primary_db_subnets,
   ]
 
-  tags {
+  tags = {
     Name = "RDS Subnet Group for ${var.db_name}"
   }
 }
@@ -17,7 +17,7 @@ resource "aws_subnet" "db_subnets" {
   cidr_block        = lookup(var.additional_db_subnet_config[count.index], "cidr")
   availability_zone = lookup(var.additional_db_subnet_config[count.index], "az")
 
-  tags {
+  tags = {
     Name = "Private Subnet (${lookup(var.additional_db_subnet_config[count.index], "az")})"
   }
 }
@@ -41,7 +41,7 @@ resource "aws_security_group" "allow_rds_access" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "Allow ${var.db_name} Access"
   }
 }
