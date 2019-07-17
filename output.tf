@@ -1,14 +1,14 @@
 output "db_name" {
-  value       = "${aws_db_instance.main.name}"
+  value       = aws_db_instance.main.name
   description = "The name of the database."
 }
 
 output "db_username" {
-  value       = "${aws_db_instance.main.username}"
+  value       = aws_db_instance.main.username
   description = "The username for the database."
 }
 
 output "db_port" {
-  value       = "${aws_db_instance.main.port}"
+  value       = aws_db_instance.main.port
   description = "The port the database is running on."
 }
