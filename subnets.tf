@@ -1,10 +1,10 @@
 resource "aws_db_subnet_group" "rds_subnet_group" {
   name = "${var.db_name}-rds-subnet-group"
 
-  subnet_ids = "${flatten([
+  subnet_ids = flatten([
     aws_subnet.db_subnets.*.id,
     var.primary_db_subnets,
-  ])}"
+  ])
 
   tags = {
     Name = "RDS Subnet Group for ${var.db_name}"
