@@ -41,12 +41,6 @@ variable allow_db_access_sgs {
   description = "Pass in a list of security groups that will have access to your Aurora cluser. Be smart with this."
 }
 
-variable additional_db_security_groups {
-  type        = "list"
-  default     = []
-  description = "Pass in a list of additional security groups that you want to assign to the database. This is a good place to allow bastion access for example."
-}
-
 variable db_instance_class {
   description = "The instance type to assign to the database."
 }
@@ -61,4 +55,9 @@ variable db_password {
 
 variable db_port {
   description = "The port. Like, for the database. And stuff."
+}
+
+variable skip_final_snapshot {
+  default     = false
+  description = "If you set this to true, it won't store a backup if the db is deleted. Mostly here for testing."
 }
