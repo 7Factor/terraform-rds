@@ -1,4 +1,7 @@
-require './spec_helper'
+require 'awspec'
+require 'hcl/checker'
+
+TFVARS = HCL::Checker.parse(File.open('testing.tfvars').read())
 
 describe rds(TFVARS['db_name']) do
   it { should exist }
