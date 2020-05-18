@@ -1,5 +1,5 @@
-vpc_id = "vpc-0e6ce80c5861c0584"
-primary_db_subnets = ["subnet-082ac19a5e55f8736", "subnet-0830c1406c1904fa4"]
+vpc_id = "vpc-0ba52c8515274079b"
+primary_db_subnets = ["subnet-02fa48e5529e4c681", "subnet-0a5114ad33c1b308e"]
 additional_db_subnet_config = [
   {
     az   = "us-east-1c"
@@ -9,7 +9,7 @@ additional_db_subnet_config = [
     cidr = "172.0.99.0/24"
   }
 ]
-allow_db_access_sgs = ["sg-0f5e9af5c86036b9f"]
+allow_db_access_sgs = ["sg-058c16fff68126a2c"]
 db_name         = "integrationtestrds"
 db_size         = 100
 db_storage_type = "gp2"
