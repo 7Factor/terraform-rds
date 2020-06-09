@@ -1,5 +1,5 @@
 resource "aws_db_subnet_group" "rds_subnet_group" {
-  name = "${var.db_name}-rds-subnet-group"
+  name = "${var.db_name}-${var.env}-rds-subnet-group"
 
   subnet_ids = flatten([
     aws_subnet.db_subnets.*.id,
@@ -7,7 +7,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
   ])
 
   tags = {
-    Name = "RDS Subnet Group for ${var.db_name}"
+    Name = "RDS Subnet Group for ${var.db_name} ${var.env}"
   }
 }
 
@@ -23,8 +23,8 @@ resource "aws_subnet" "db_subnets" {
 }
 
 resource "aws_security_group" "allow_rds_access" {
-  name        = "allow-${var.db_name}-access"
-  description = "Allow access to the ${var.db_name} instance."
+  name        = "allow-${var.db_name}-${var.env}-access"
+  description = "Allow access to the ${var.db_name} ${var.env} instance."
   vpc_id      = var.vpc_id
 
   ingress {
@@ -42,6 +42,6 @@ resource "aws_security_group" "allow_rds_access" {
   }
 
   tags = {
-    Name = "Allow ${var.db_name} Access"
+    Name = "Allow ${var.db_name} ${var.env} Access"
   }
 }

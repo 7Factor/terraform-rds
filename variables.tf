@@ -1,4 +1,7 @@
 # Base variable requirements
+variable env {
+  description = "A unique identifier to namespace your resources."
+}
 variable vpc_id {
   description = "The ID of the VPC that we want to install things into."
 }
