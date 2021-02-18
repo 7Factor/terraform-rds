@@ -22,7 +22,7 @@ resource "aws_db_instance" "main" {
     aws_security_group.allow_rds_access.id,
     var.allow_db_access_sgs,
   ])
-  db_subnet_group_name   = aws_db_subnet_group.rds_subnet_group.name
+  db_subnet_group_name = aws_db_subnet_group.rds_subnet_group.name
 
   engine_version = var.db_engine_version
   instance_class = var.db_instance_class
