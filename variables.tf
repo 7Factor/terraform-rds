@@ -10,7 +10,7 @@ variable "primary_db_subnets" {
 }
 
 variable "additional_db_subnet_config" {
-  type        = list(string)
+  type        = list(any)
   default     = []
   description = "An optional list of maps that describe the additional db subnets you want to create for the RDS. Make sure these don't collide with your primary subnets."
 }
